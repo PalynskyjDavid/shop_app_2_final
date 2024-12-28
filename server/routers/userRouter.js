@@ -15,5 +15,6 @@ router.get("/list", ListController);
 // router.delete("/remove", RemoveController);
 // router.put("/create", CreateController);
 // router.put("/update", UpdateController);
+router.get("/login", GetController)
 
 module.exports = router;

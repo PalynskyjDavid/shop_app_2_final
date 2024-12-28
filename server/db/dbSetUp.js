@@ -7,7 +7,7 @@ const CartSchema = require('../schemas/CartSchema.js')
 exports.connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI);
-        console.log(`Connected successfully to: ${mongoose.connection.name} `);
+        //console.log(`Connected successfully to: ${mongoose.connection.name} `);
     } catch (error) {
         console.error(`${mongoose.connection.name} Connection error:`, error);
         process.exit(1);
@@ -66,7 +66,7 @@ exports.createCarts = async () => {
             itemList: [
                 {
                     name: "Rajce",
-                    resolved: false,
+                    resolved: true,
                 },
                 {
                     name: "Brambory",

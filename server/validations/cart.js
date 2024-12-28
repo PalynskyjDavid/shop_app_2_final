@@ -33,7 +33,7 @@ exports.create = async (req, res, next) => {
             'any.required': 'Missing required fields'
         }).validateAsync(req.body);
     } catch (error) {
-        console.log("asdf",error);
+        //console.log("asdf",error);
         res.message = error;
         return new Response(req.body, error).error400(res);
         //throw new APIError(`Validation create error: ${error}`, 400);

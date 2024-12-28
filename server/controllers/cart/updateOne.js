@@ -3,7 +3,7 @@ const Response = require('../../utilities/response');
 
 
 async function updateOne(req, res) {
-    console.log(`Updating cart ${req.body.name}`);
+    //console.log(`Updating cart ${req.body.name}`);
     try {
         //console.log(req);
 
@@ -19,7 +19,7 @@ async function updateOne(req, res) {
         );
 
         if (!updatedCart) {
-            console.log('updatedd',updatedCart)
+            //console.log('updatedd',updatedCart)
             return new Response(updatedCart, `Cart with ID '${req.body._id}' doesn't exist.`).error400(res);
         }
 
