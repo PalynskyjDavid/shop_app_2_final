@@ -91,6 +91,8 @@ export function DetailProvider({ children }) {
     }, [dataRaw, loggedInUser, resolved, showMarked, loadingData]);
 
 
+    const toggleResolved = () => { setResolved((current) => !current) }
+
     // const value = {
     //     data: filteredData,
     //     handlerMap: {
@@ -228,7 +230,7 @@ export function DetailProvider({ children }) {
 
     const value = {
         handlerMap: {
-            //TODO
+            toggleResolved,
         },
         carts: filteredData,
         helpers: {

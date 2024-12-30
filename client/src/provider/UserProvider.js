@@ -9,7 +9,6 @@ export function UserProvider({ children }) {
     const [userList, setUserList] = useState([]);
     const [loadingUsers, setLoadingUsers] = useState(false);
 
-
     // UseEffect probehna az po vyrenderovani komponenty, je
     // dulezite vyresit chovani aplikace pred poskytnutim dat
     // treba z API.
@@ -89,7 +88,8 @@ export function UserProvider({ children }) {
     const dataProvided = {
         userList,
         loggedInUser, changeUser,
-        loadingUsers
+        loadingUsers,
+        
     };
 
     //console.log('Values passed in UserProvider', dataProvided)

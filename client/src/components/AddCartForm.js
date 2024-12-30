@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import Modal from "react-modal"
+import Modal from "react-modal";
+import { useTranslation } from "react-i18next";
 import useDetailContext from '../hooks/useDetail';
 
 function AddCartForm({ showModal, handleCloseModal }) {
-
+  const { t } = useTranslation();
   const { handlerMap } = useDetailContext();
   const [name, setName] = useState('');
 
   const handleSubmit = (event) => {
-
     event.preventDefault();
     //handlerMap.handleCreate(name);
     resetForm();
     handleCloseModal();
-    return alert('This function is not implemented yet.');
+    return alert(t('This function is not implemented yet.'));
   };
 
   const resetForm = () => {
@@ -27,7 +27,7 @@ function AddCartForm({ showModal, handleCloseModal }) {
     >
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Jméno košíku: </label>
+          <label>{t('cartName')}: </label>
           <input
             type="text"
             value={name}
@@ -35,9 +35,9 @@ function AddCartForm({ showModal, handleCloseModal }) {
             required
           />
         </div>
-        <button type="submit">Vytvořit</button>
+        <button type="submit">{t('create')}</button>
       </form>
-      <button onClick={handleCloseModal}>Zavřít</button>
+      <button onClick={handleCloseModal}>{t('close')}</button>
     </Modal>
   );
 };

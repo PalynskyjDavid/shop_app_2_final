@@ -6,25 +6,40 @@ import { Outlet } from "react-router-dom";
 import useThemeContext from "../hooks/useTheme.js";
 import ReactSwitch from "react-switch";
 
+import { useTranslation } from "react-i18next";
 
 
 export default function Header() {
     const { userList, loggedInUser, loadingUsers, changeUser } = useUserContext();
 
     const { theme, toggleTheme } = useThemeContext();
-    //console.log("Header liu", loggedInUser)
-    //console.log("Header ul", userList)
+
+    const { t, i18n } = useTranslation();
 
     const greeting = loadingUsers ?
-        (loggedInUser ? <>Hello {loggedInUser.userName}</> : <>No user logged in</>)
+        (loggedInUser ? <>{t("greeting")} {loggedInUser.userName}</> : <>{t("logIn")}</>)
         :
-        <>Loading...</>;
+        <>{t("loading")}</>;
+
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    };
+
     return (
         <>
             <header className="header">
                 <div className="header-title">Shopping app</div>
-                <button onClick={() => toggleTheme()}></button>
-                <ReactSwitch onChange={toggleTheme} checked={theme === "light"}/>
+
+                <div className="language-switcher">
+                    {Object.keys(i18n.options.resources).map((lng) => (
+                        <button key={lng} onClick={() => changeLanguage(lng)}>
+                            {lng}
+                        </button>
+                    ))}
+                </div>
+
+                <ReactSwitch onChange={toggleTheme} checked={theme === "light"} />
+
                 <div>
                     <div className="header-user">{greeting}</div>
                     <UserDropDown

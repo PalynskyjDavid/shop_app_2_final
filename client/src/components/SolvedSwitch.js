@@ -1,12 +1,13 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function SolvedSwitch({ handlerMap }) {
+    const { t } = useTranslation();
 
     return (
-        //<button onClick={() => handlerMap.toggleResolved()}>
-        <button onClick={() => alert("This function is not implemented yet.")}>
-            {handlerMap.resolved ? "Zobrazit nevyřešené" : "Zobrazit vyřešené"}
+        // <button onClick={() => alert(t("notImplemented."))}>
+        <button onClick={() => handlerMap.toggleResolved()}>
+            {handlerMap.resolved ? t('showUnresolved') : t('showResolved')}
         </button >
-    )
+    );
 }
-
-//https://tigerabrodi.blog/is-it-ok-to-pass-setstate-as-a-prop-in-react
