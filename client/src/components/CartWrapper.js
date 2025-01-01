@@ -1,12 +1,13 @@
 import useDetailContext from "../hooks/useDetail.js";
 import useUserContext from "../hooks/useUser.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, createSearchParams } from "react-router-dom";
 import SolvedSwitch from "./SolvedSwitch.js";
 import AddCartForm from "./AddCartForm.js";
 import { useState } from "react";
 import "../../src/App.css"
 import useThemeContext from "../hooks/useTheme.js";
 import { useTranslation } from "react-i18next";
+import PieGraph from './PieGraph.js';
 
 export default function CartWrapper() {
     const { t } = useTranslation();
@@ -30,7 +31,8 @@ export default function CartWrapper() {
             {carts.map((cart) => (
                 <div
                     key={cart._id}
-                    onClick={() => navigate({ pathname: "detail" })}
+                    //onClick={() => navigate({ pathname: "detail" })}
+                    onClick={() => navigate({ pathname: "detail", search: createSearchParams({ cartId: cart._id }).toString() })}
                 >
                     <div>{t('cartFor')}: {cart.name}</div>
                     <div>{t('owner')}: {loggedInUser.userName}</div>
@@ -38,6 +40,8 @@ export default function CartWrapper() {
                     <div>{t('resolved')}?: {cart.resolved ? t('resolved') : t('notResolved')}</div>
                 </div>
             ))}
+
+            <PieGraph></PieGraph>
         </div>
     );
 }

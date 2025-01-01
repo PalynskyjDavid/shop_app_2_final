@@ -8,8 +8,7 @@ import { ThemeProvider } from "./provider/ThemeProvider.js";
 
 import Header from "./components/Header.js";
 import CartWrapper from "./components/CartWrapper.js";
-// import Testcomponent from "./components/testcomponent.js";
-
+import CartDetail from "./components/CartDetail.js";
 
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Header />}>
                 <Route index element={<CartWrapper />} />
-                {/*<Route path="detail" element={<CartDetail />}/> */}
+                <Route path="detail" element={<CartDetail />} />
               </Route>
             </Routes>
           </DetailProvider>

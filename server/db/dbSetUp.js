@@ -46,7 +46,7 @@ exports.createCarts = async () => {
             name: "Pecivo",
             owner: u_id[0],
             memberList: [u_id[1], u_id[2], u_id[3], u_id[4]],
-            resolved: false,
+            resolved: true,
             itemList: [
                 {
                     name: "Rohlik",

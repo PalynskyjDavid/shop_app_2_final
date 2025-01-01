@@ -233,6 +233,7 @@ export function DetailProvider({ children }) {
             toggleResolved,
         },
         carts: filteredData,
+        dataRaw,
         helpers: {
             resolved, setResolved,
             showMarked, setShowMarked,
